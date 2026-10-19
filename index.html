@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Biodata Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Student Biodata Form</h1>
+        <p class="subtitle">Please fill in your details correctly. Fields marked * are required.</p>
+
+        <form id="biodataForm" novalidate>
+
+            <div class="form-group">
+                <label for="fullName">Full Name *</label>
+                <input type="text" id="fullName" placeholder="Surname first">
+                <small class="error"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="matricNo">Matric Number *</label>
+                <input type="text" id="matricNo" placeholder="e.g. VUG/SEN/24/11362">
+                <small class="error"></small>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" placeholder="you@example.com">
+                    <small class="error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" placeholder="08012345678">
+                    <small class="error"></small>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="dob">Date of Birth *</label>
+                    <input type="date" id="dob">
+                    <small class="error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender *</label>
+                    <div class="radio-group" id="genderGroup">
+                        <label><input type="radio" name="gender" value="Male"> Male</label>
+                        <label><input type="radio" name="gender" value="Female"> Female</label>
+                    </div>
+                    <small class="error"></small>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="department">Department *</label>
+                    <select id="department">
+                        <option value="">-- Select department --</option>
+                        <option>Software Engineering</option>
+                        <option>Computer Science</option>
+                        <option>Cyber Security</option>
+                        <option>Information Technology</option>
+                        <option>Data Science</option>
+                    </select>
+                    <small class="error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="level">Level *</label>
+                    <select id="level">
+                        <option value="">-- Select level --</option>
+                        <option>100</option>
+                        <option>200</option>
+                        <option>300</option>
+                        <option>400</option>
+                        <option>500</option>
+                    </select>
+                    <small class="error"></small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="stateOfOrigin">State of Origin *</label>
+                <input type="text" id="stateOfOrigin" placeholder="e.g. Kaduna">
+                <small class="error"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Home Address</label>
+                <textarea id="address" rows="3" placeholder="Optional"></textarea>
+                <small class="error"></small>
+            </div>
+
+            <div class="buttons">
+                <button type="submit" class="btn-submit">Submit</button>
+                <button type="reset" class="btn-reset">Reset</button>
+            </div>
+        </form>
+
+        <div id="successBox" class="success hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
