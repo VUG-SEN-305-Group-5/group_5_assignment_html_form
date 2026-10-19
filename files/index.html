@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Registration Form</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Student Registration Form</h2>
+
+<form id="studentForm">
+  <label for="fullname">Full name</label>
+  <input type="text" id="fullname" name="fullname" required>
+
+  <label for="matric">Matric number</label>
+  <input type="text" id="matric" name="matric" required>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="phone">Phone number</label>
+  <input type="tel" id="phone" name="phone" pattern="[0-9+ ]{10,15}" title="Enter a valid phone number" required>
+
+  <label for="dob">Date of birth</label>
+  <input type="date" id="dob" name="dob" required>
+
+  <label>Gender</label>
+  <input type="radio" id="male" name="gender" value="Male" required>
+  <label for="male" class="inline">Male</label>
+  <input type="radio" id="female" name="gender" value="Female">
+  <label for="female" class="inline">Female</label>
+
+  <label for="department">Department</label>
+  <select id="department" name="department" required>
+    <option value="">-- Select department --</option>
+    <option>Computer Science</option>
+    <option>Software Engineering</option>
+    <option>Information Technology</option>
+    <option>Mathematics</option>
+    <option>Physics</option>
+    <option>Chemistry</option>
+    <option>Biology</option>
+    <option>Accounting</option>
+    <option>Economics</option>
+    <option>Other</option>
+  </select>
+
+  <label for="level">Level</label>
+  <select id="level" name="level" required>
+    <option value="">-- Select level --</option>
+    <option>100</option>
+    <option>200</option>
+    <option>300</option>
+    <option>400</option>
+    <option>500</option>
+  </select>
+
+  <label for="state">State of origin</label>
+  <select id="state" name="state" required>
+    <option value="">-- Select state --</option>
+  </select>
+
+  <label for="address">Address</label>
+  <textarea id="address" name="address" rows="3" required></textarea>
+
+  <button type="submit">Submit</button>
+  <button type="reset">Reset</button>
+</form>
+
+<div id="message"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
