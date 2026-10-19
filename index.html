@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h2>Student Registration Form</h2>
+        <form action="#" method="POST">
+
+            <!-- Full Name -->
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter full name" required>
+            </div>
+
+            <!-- Matric Number -->
+            <div class="form-group">
+                <label for="matric">Matric Number</label>
+                <input type="text" id="matric" name="matric" placeholder="e.g. VUG/SEN/23/0001" required>
+            </div>
+
+            <!-- Email Address -->
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="student@example.com" required>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="08012345678" required>
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <!-- Gender Radio Buttons -->
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="radio-group">
+                    <label><input type="radio" id="male" name="gender" value="male" checked> Male</label>
+                    <label><input type="radio" id="female" name="gender" value="female"> Female</label>
+                </div>
+            </div>
+
+            <!-- Department Dropdown -->
+            <div class="form-group">
+                <label for="department">Department</label>
+                <select id="department" name="department" required>
+                    <option value="">-- Select Department --</option>
+                    <option value="software_engineering">Software Engineering</option>
+                    <option value="computer_science">Computer Science</option>
+                    <option value="cyber_security">Cyber Security</option>
+                    <option value="information_technology">Information Technology</option>
+                </select>
+            </div>
+
+            <!-- Level Dropdown -->
+            <div class="form-group">
+                <label for="level">Level</label>
+                <select id="level" name="level" required>
+                    <option value="">-- Select Level --</option>
+                    <option value="100">100 Level</option>
+                    <option value="200">200 Level</option>
+                    <option value="300">300 Level</option>
+                    <option value="400">400 Level</option>
+                </select>
+            </div>
+
+            <!-- State of Origin -->
+            <div class="form-group">
+                <label for="state">State of Origin</label>
+                <input type="text" id="state" name="state" placeholder="Enter state of origin">
+            </div>
+
+            <!-- Address Textarea -->
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="4" placeholder="Enter home address"></textarea>
+            </div>
+
+            <!-- Submit and Reset Buttons -->
+            <div class="button-group">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
+
+        </form>
+    </div>
+
+</body>
+
+</html>
