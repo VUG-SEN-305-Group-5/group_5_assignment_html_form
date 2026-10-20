@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Biodata Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Student Biodata Form</h2>
+
+    <form id="myForm">
+        Full Name: <input type="text" id="name" required><br><br>
+
+        Matric Number: <input type="text" required><br><br>
+
+        Email: <input type="email" required><br><br>
+
+        Phone Number: <input type="tel" required><br><br>
+
+        Date of Birth: <input type="date" required><br><br>
+
+        Gender:
+        <input type="radio" name="gender" required> Male
+        <input type="radio" name="gender"> Female<br><br>
+
+        Department:
+        <select required>
+            <option value="">Select</option>
+            <option>Computer Science</option>
+            <option>Software Engineering</option>
+            <option>Cybersecurity</option>
+        </select><br><br>
+
+        Level:
+        <select required>
+            <option value="">Select</option>
+            <option>100</option>
+            <option>200</option>
+            <option>300</option>
+            <option>400</option>
+        </select><br><br>
+
+        State of Origin: <input type="text" required><br><br>
+
+        Address: <textarea required></textarea><br><br>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
