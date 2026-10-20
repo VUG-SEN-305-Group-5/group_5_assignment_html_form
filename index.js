@@ -1,7 +1,6 @@
 const form = document.getElementById("biodataForm");
 const successBox = document.getElementById("successBox");
 
-// show an error message under a field
 function showError(input, message) {
     input.classList.add("invalid");
     const errorText = input.parentElement.querySelector(".error");
@@ -38,7 +37,6 @@ function validateForm() {
         clearError(fullName);
     }
 
-    // matric number format e.g VUG/SEN/24/11362
     const matricPattern = /^[A-Z]{3}\/[A-Z]{3}\/\d{2}\/\d{4,6}$/i;
     if (matricNo.value.trim() === "") {
         showError(matricNo, "Matric number is required");
@@ -50,7 +48,6 @@ function validateForm() {
         clearError(matricNo);
     }
 
-    // email
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (email.value.trim() === "") {
         showError(email, "Email is required");
@@ -62,7 +59,6 @@ function validateForm() {
         clearError(email);
     }
 
-    // phone - 11 digits, nigerian numbers start with 0
     const phonePattern = /^0\d{10}$/;
     if (phone.value.trim() === "") {
         showError(phone, "Phone number is required");
@@ -74,7 +70,6 @@ function validateForm() {
         clearError(phone);
     }
 
-    // date of birth - must be picked and student should be at least 15
     if (dob.value === "") {
         showError(dob, "Date of birth is required");
         isValid = false;
@@ -89,7 +84,6 @@ function validateForm() {
         }
     }
 
-    // gender - radio buttons
     const genderSelected = document.querySelector('input[name="gender"]:checked');
     const genderError = genderGroup.parentElement.querySelector(".error");
     if (!genderSelected) {
@@ -124,7 +118,6 @@ function validateForm() {
 }
 
 form.addEventListener("submit", function (event) {
-    // stop the page from reloading
     event.preventDefault();
 
     successBox.classList.add("hidden");
@@ -166,16 +159,6 @@ form.addEventListener("submit", function (event) {
     form.reset();
 });
 
-// clear errors when the user starts typing again
-form.querySelectorAll("input, select, textarea").forEach(function (field) {
-    field.addEventListener("input", function () {
-        if (field.type !== "radio") {
-            clearError(field);
-        } else {
-            document.getElementById("genderGroup").parentElement.querySelector(".error").textContent = "";
-        }
-    });
-});
 
 // clear everything when reset is clicked
 form.addEventListener("reset", function () {
