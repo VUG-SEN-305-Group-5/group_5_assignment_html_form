@@ -1,0 +1,18 @@
+# python virtual environment
+venv/
+env/
+server/venv/
+
+# secrets - never push this
+.env
+server/.env
+
+# python cache
+__pycache__/
+*.pyc
+
+# editor / os files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

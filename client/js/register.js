@@ -160,7 +160,6 @@ form.addEventListener("submit", function (event) {
 });
 
 
-// clear everything when reset is clicked
 form.addEventListener("reset", function () {
     form.querySelectorAll(".invalid").forEach(function (field) {
         field.classList.remove("invalid");
