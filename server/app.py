@@ -4,6 +4,7 @@ from db import get_connection
 
 from routes.auth_routes import auth_bp
 from routes.student_routes import student_bp
+from models.student_model import get_all_departments, get_all_students
 
 # serve the frontend from the client folder next to this one
 app = Flask(__name__, static_folder="../client", static_url_path="")
@@ -15,6 +16,9 @@ app.register_blueprint(student_bp)
 
 
 # ---------------- pages ----------------
+
+print("Departments:", get_all_departments())
+print("Students:", get_all_students())
 
 @app.route("/")
 @app.route("/register")
