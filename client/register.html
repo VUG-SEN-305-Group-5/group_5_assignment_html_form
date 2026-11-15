@@ -3,70 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Biodata Form</title>
+    <title>Student Registration</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <div class="container">
-        <h1>Student Biodata Form</h1>
-        <p class="subtitle">Please fill in your details correctly. Fields marked * are required.</p>
+        <h1>Student Registration</h1>
+        <p class="subtitle">
+            Please fill in your details correctly. Fields marked * are required.
+        </p>
 
         <form id="biodataForm" novalidate>
 
-            <div class="form-group">
-                <label for="fullName">Full Name *</label>
-                <input type="text" id="fullName" placeholder="Surname first">
-                <small class="error"></small>
+            <h3>Personal Information</h3>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" placeholder="Enter first name">
+                    <small class="error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" placeholder="Enter surname">
+                    <small class="error"></small>
+                </div>
             </div>
 
             <div class="form-group">
-                <label for="matricNo">Matric Number *</label>
-                <input type="text" id="matricNo" placeholder="e.g. VUG/SEN/24/11362">
+                <label for="otherName">Other Name</label>
+                <input type="text" id="otherName" placeholder="Optional">
                 <small class="error"></small>
             </div>
 
             <div class="row">
+                <div class="form-group">
+                    <label for="matricNo">Matric Number *</label>
+                    <input type="text" id="matricNo"
+                           placeholder="e.g. VUG/SEN/24/11362">
+                    <small class="error"></small>
+                </div>
+
                 <div class="form-group">
                     <label for="email">Email *</label>
                     <input type="email" id="email" placeholder="you@example.com">
                     <small class="error"></small>
                 </div>
+            </div>
 
+            <div class="row">
                 <div class="form-group">
                     <label for="phone">Phone Number *</label>
                     <input type="tel" id="phone" placeholder="08012345678">
                     <small class="error"></small>
                 </div>
-            </div>
 
-            <div class="row">
                 <div class="form-group">
                     <label for="dob">Date of Birth *</label>
                     <input type="date" id="dob">
                     <small class="error"></small>
                 </div>
-
-                <div class="form-group">
-                    <label>Gender *</label>
-                    <div class="radio-group" id="genderGroup">
-                        <label><input type="radio" name="gender" value="Male"> Male</label>
-                        <label><input type="radio" name="gender" value="Female"> Female</label>
-                    </div>
-                    <small class="error"></small>
-                </div>
             </div>
+
+            <div class="form-group">
+                <label>Gender *</label>
+                <div class="radio-group" id="genderGroup">
+                    <label>
+                        <input type="radio" name="gender" value="Male">
+                        Male
+                    </label>
+
+                    <label>
+                        <input type="radio" name="gender" value="Female">
+                        Female
+                    </label>
+                </div>
+                <small class="error"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="stateOfOrigin">State of Origin *</label>
+                <input type="text" id="stateOfOrigin"
+                       placeholder="e.g. Kaduna">
+                <small class="error"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Home Address</label>
+                <textarea id="address" rows="3"
+                          placeholder="Optional"></textarea>
+                <small class="error"></small>
+            </div>
+
+            <h3>Academic Information</h3>
 
             <div class="row">
                 <div class="form-group">
                     <label for="department">Department *</label>
                     <select id="department">
-                        <option value="">-- Select department --</option>
-                        <option>Software Engineering</option>
-                        <option>Computer Science</option>
-                        <option>Cyber Security</option>
-                        <option>Information Technology</option>
-                        <option>Data Science</option>
+                        <option value="">Loading departments...</option>
                     </select>
                     <small class="error"></small>
                 </div>
@@ -75,32 +112,49 @@
                     <label for="level">Level *</label>
                     <select id="level">
                         <option value="">-- Select level --</option>
-                        <option>100</option>
-                        <option>200</option>
-                        <option>300</option>
-                        <option>400</option>
-                        <option>500</option>
+                        <option value="100">100</option>
+                        <option value="200">200</option>
+                        <option value="300">300</option>
+                        <option value="400">400</option>
+                        <option value="500">500</option>
                     </select>
                     <small class="error"></small>
                 </div>
             </div>
 
+            <h3>Login Information</h3>
+
             <div class="form-group">
-                <label for="stateOfOrigin">State of Origin *</label>
-                <input type="text" id="stateOfOrigin" placeholder="e.g. Kaduna">
+                <label for="username">Username *</label>
+                <input type="text" id="username"
+                       placeholder="Choose a username">
                 <small class="error"></small>
             </div>
 
             <div class="form-group">
-                <label for="address">Home Address</label>
-                <textarea id="address" rows="3" placeholder="Optional"></textarea>
+                <label for="password">Password *</label>
+                <input type="password" id="password"
+                       placeholder="At least 8 characters">
+                <small class="error"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password *</label>
+                <input type="password" id="confirmPassword"
+                       placeholder="Enter password again">
                 <small class="error"></small>
             </div>
 
             <div class="buttons">
-                <button type="submit" class="btn-submit">Submit</button>
-                <button type="reset" class="btn-reset">Reset</button>
+                <button type="submit" class="btn-submit">
+                    Register
+                </button>
+
+                <button type="reset" class="btn-reset">
+                    Reset
+                </button>
             </div>
+
         </form>
 
         <div id="successBox" class="success hidden"></div>
