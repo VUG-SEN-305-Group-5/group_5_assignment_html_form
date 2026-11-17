@@ -15,30 +15,55 @@ from db import get_connection
 
 
 def create_credentials(student_id, username, password_hash, conn, role="student"):
-    """Insert a login row for a student and return the new credential_id.
-
-    Use the conn that is passed in and DON'T commit or close it
-    (auth_routes commits once after both the student and the login are inserted).
-    """
-    # TODO
-    pass
+    
+    with conn.cursor() as cursor:
+        cursor.execute(
+            """
+            INSERT INTO user_credentials (student_id, username, password_hash, role)
+            VALUES (%s, %s, %s, %s)
+            """,
+            (student_id, username, password_hash, role),
+        )
+        return cursor.lastrowid
 
 
 def get_user_by_username(username):
-    """Return the credentials row for this username, or None.
-    Must include: credential_id, student_id, username, password_hash, role, is_active
-    """
-    # TODO
-    pass
+    conn = get_connection()
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute(
+                """
+                SELECT credential_id, student_id, username, password_hash, role, is_active
+                FROM user_credentials
+                WHERE username = %s
+                """,
+                (username,),
+            )
+            return cursor.fetchone()
+    finally:
+        conn.close()
 
 
 def username_exists(username):
-    """Return True if the username is taken."""
-    # TODO
-    pass
+    conn = get_connection()
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute(
+                "SELECT 1 FROM user_credentials WHERE username = %s LIMIT 1", (username,)
+            )
+            return cursor.fetchone() is not None
+    finally:
+        conn.close()
 
 
 def update_last_login(credential_id):
-    """Set last_login to the current date and time (NOW())."""
-    # TODO
-    pass
+    conn = get_connection()
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute(
+                "UPDATE user_credentials SET last_login = NOW() WHERE credential_id = %s",
+                (credential_id,),
+            )
+        conn.commit()
+    finally:
+        conn.close()

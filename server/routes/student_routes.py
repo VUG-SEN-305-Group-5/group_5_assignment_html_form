@@ -1,7 +1,4 @@
 """
-CONTROLLER - students and departments
-Owner: Task 6
-Deadline: Sat 14
 
 Endpoints:
     GET /api/departments   list departments for the dropdown (no login needed)

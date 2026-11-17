@@ -32,7 +32,6 @@ def dashboard_page():
     return app.send_static_file("dashboard.html")
 
 
-# ---------------- health check ----------------
 
 @app.route("/api/health")
 def health_check():
