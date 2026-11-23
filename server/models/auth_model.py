@@ -8,14 +8,22 @@ Rules for this file:
 - This file NEVER sees the plain password, only password_hash.
   Hashing happens in routes/auth_routes.py.
 - Always use %s placeholders.
-- Functions that change data must call conn.commit().
+- Functions that open their own connection must call conn.commit()
+  when they change data.
+- create_credentials() is the exception: it uses the connection passed in
+  and does NOT commit, because auth_routes.py saves the student and their
+  login together and commits once (both or nothing).
 """
 
 from db import get_connection
 
 
 def create_credentials(student_id, username, password_hash, conn, role="student"):
-    
+    """Inserts a login for a student. Returns the new credential_id.
+
+    Uses the caller's connection and does NOT commit - the caller commits
+    after the student row and this row are both inserted.
+    """
     with conn.cursor() as cursor:
         cursor.execute(
             """
@@ -28,6 +36,11 @@ def create_credentials(student_id, username, password_hash, conn, role="student"
 
 
 def get_user_by_username(username):
+    """Returns the login row for this username as a dict, or None.
+
+    Includes password_hash so the route can check the password.
+    Never send this row straight back to the browser.
+    """
     conn = get_connection()
     try:
         with conn.cursor() as cursor:
@@ -45,6 +58,7 @@ def get_user_by_username(username):
 
 
 def username_exists(username):
+    """Returns True if the username is already taken."""
     conn = get_connection()
     try:
         with conn.cursor() as cursor:
@@ -57,6 +71,7 @@ def username_exists(username):
 
 
 def update_last_login(credential_id):
+    """Sets last_login to the current time after a successful login."""
     conn = get_connection()
     try:
         with conn.cursor() as cursor:
